@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+        <link rel="icon" href="https://static.jianshukeji.com/highcharts/images/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>
+		<script src="https://code.highcharts.com.cn/highcharts/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+		<style>
+	h1 {font-size:14px;}
+	img.middle {vertical-align:middle;}
+</style>
+    </head>
+    <body>
+		<h1><img class='middle' src="//tvax1.sinaimg.cn/crop.0.0.664.664.180/007YRGmvly8g7h9myqqy2j30ig0igdg3.jpg?KID=imgbed,tva&Expires=1572460688&ssig=w25bWbfiFL" width="16" height="16">足球心经</h1>
+        <div id="container" style="min-width:400px;height:370px"></div>
+        <script  language="JavaScript">
+            Highcharts.chart('container', {
+	xAxis: {
+		categories: ['06-01-02','07-03-10','07-08-18','10-03-17','10-08-07','12-01-02', '13-04-20', '14-09-27', '16-03-19', '17-04-15', '18-04-28', '18-12-15', '19-11-3']
+	},
+	yAxis: {
+		min: -0.5,
+		      title: {
+                  text: '主让',
+				  rotation: -0,
+				  align: 'middle',
+				  style:{
+					fontFamily: 'Verdana, sans-serif',
+                    writingMode:'vertical-lr'
+                }
+      },
+		plotLines: [{
+			color: 'red',
+			dashStyle: 'dot',
+			width: 2,
+			value: 0,
+			label: {
+				align: 'right',
+				style: {
+					fontStyle: 'italic'
+				},
+				text: '平手盘口',
+				x: -10
+			},
+			zIndex: 3
+		}]
+	},
+	title: {
+		text: '水晶宫VS莱斯特城近13场对赛往绩胜负'
+	},
+	series: [{
+		type: 'line',
+		name: '平手盘口分界线',
+		data: [[0, -0.25], [12,0]],
+		marker: {
+			enabled: false
+		},
+		states: {
+			hover: {
+				lineWidth: 0
+			}
+		},
+		enableMouseTracking: false
+	}, {
+		type: 'scatter',
+		name: '终盘',
+		data: [['胜',0.25],['胜',0], ['平',0], ['负',0], ['胜',0], ['负',-0.25],['平',0],['胜',0],['负',0],['平',0.5],
+			   ['胜',0.5],['胜',0],['负',-0.5]],
+		dataLabels: {
+                enabled: true,
+			formatter: function() { 
+		    return  this.point.name;
+		}
+            },
+		marker: {
+			radius: 4
+		}
+		
+	},{
+		type: 'scatter',
+		name: '初盘',
+		data: [['',0.75],['',0.25], ['',0], ['',0], ['',0], ['',-0.25],['',0],['',0],['',-0.25],['',0.25],
+			   ['',0.5],['',0],['',-0.25]],
+		dataLabels: {
+                enabled: true,
+			formatter: function() { 
+		    return  this.point.name;
+		}
+            },
+		marker: {
+			radius: 3
+		}
+	},{
+		type:'pie',
+		name:'初盘受让平半统计',
+        data: [{
+            name: '初盘受让平半胜',
+            y: 0,
+            color: Highcharts.getOptions().colors[0] 
+        }, {
+            name: '初盘受让平半负',
+            y: 3,
+            color: Highcharts.getOptions().colors[1] 
+        }, {
+            name: '初盘受让平半平',
+            y: 0,
+            color: Highcharts.getOptions().colors[2] 
+        }],
+        center: [300, 20],
+        size: 70,
+        showInLegend: false,
+        dataLabels: {
+            enabled: true
+        }
+	}]
+}); 
+        </script>
+    </body>
+</html>
